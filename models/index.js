@@ -1,5 +1,8 @@
 // Imports
 const mongoose = require("mongoose");
+const Guest = require("./guest");
+const User = require("./user");
+const Room = require("./room");
 
 // Config
 const mongoURI = process.env.MONGO_URL;
@@ -17,4 +20,8 @@ db.on("connected", () => console.log("mongo connected: ", mongoURI));
 db.on("disconnected", () => console.log("mongo disconnected"));
 
 // Export models
-module.exports = {};
+module.exports = {
+  Guest,
+  User,
+  Room,
+};
