@@ -6,39 +6,16 @@ const { Room } = require("../models");
 const httpStatus = require("http-status");
 
 // Controllers
-const findAllRooms = async (req, res) => {
+const findRooms = async (req, res) => {
   try {
-    res.send("Still implementing");
-  } catch (e) {
-    console.error(e);
-    res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
-  }
-};
-const findByRoomType = async (req, res) => {
-  try {
-    res.send("Still implementing");
-  } catch (e) {
-    console.error(e);
-    res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
-  }
-};
-const findByRoomId = async (req, res) => {
-  try {
-    res.send("Still implementing");
+    const result = await Room.find(req.query);
+    res.json(result);
   } catch (e) {
     console.error(e);
     res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
   }
 };
 const bookRoom = async (req, res) => {
-  try {
-    res.send("Still implementing");
-  } catch (e) {
-    console.error(e);
-    res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
-  }
-};
-const findRoomByUser = async (req, res) => {
   try {
     res.send("Still implementing");
   } catch (e) {
@@ -57,10 +34,7 @@ const cancelRoom = async (req, res) => {
 
 // Export functions
 module.exports = {
-  findAllRooms,
-  findByRoomType,
-  findByRoomId,
+  findRooms,
   bookRoom,
-  findRoomByUser,
   cancelRoom,
 };
