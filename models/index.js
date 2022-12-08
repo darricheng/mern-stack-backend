@@ -1,3 +1,6 @@
+// Require dotenv for seed and clearDb scripts
+require("dotenv").config();
+
 // Imports
 const mongoose = require("mongoose");
 const Guest = require("./guest");
