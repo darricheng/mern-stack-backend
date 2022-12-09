@@ -1,1 +1,1 @@
-# mern-stack-backend
+# Hotel App
