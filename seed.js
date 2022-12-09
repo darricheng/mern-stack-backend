@@ -1,4 +1,4 @@
-const { Room } = require("./models");
+const { Room, Guest } = require("./models");
 
 const rooms = [
   {
@@ -42,10 +42,44 @@ const rooms = [
     booked: false,
   },
 ];
+const guests = [
+  {
+    name: "John Doe",
+    breakfast: true,
+    lunch: true,
+    dinner: true,
+  },
+  {
+    name: "Jane Doe",
+    breakfast: false,
+    lunch: true,
+    dinner: false,
+  },
+  {
+    name: "John Smith",
+    breakfast: true,
+    lunch: false,
+    dinner: true,
+  },
+  {
+    name: "Bob Lee",
+    breakfast: false,
+    lunch: false,
+    dinner: true,
+  },
+  {
+    name: "Jack Smith",
+    breakfast: false,
+    lunch: false,
+    dinner: false,
+  },
+];
 
 const performSeed = async () => {
   const createdRooms = await Room.insertMany(rooms);
+  const createdGuests = await Guest.insertMany(guests);
   console.log(`Created ${createdRooms.length} rooms`);
+  console.log(`Created ${createdGuests.length} guests`);
 };
 
 performSeed();
