@@ -2,43 +2,43 @@ const { Room, Guest } = require("./models");
 
 const rooms = [
   {
-    room_type: "Single Room",
+    room_type: "single-room",
     booked: false,
   },
   {
-    room_type: "Single Room",
+    room_type: "single-room",
     booked: false,
   },
   {
-    room_type: "Single Room",
+    room_type: "single-room",
     booked: false,
   },
   {
-    room_type: "Single Room",
+    room_type: "single-room",
     booked: false,
   },
   {
-    room_type: "Double Room",
+    room_type: "double-room",
     booked: false,
   },
   {
-    room_type: "Double Room",
+    room_type: "double-room",
     booked: false,
   },
   {
-    room_type: "Double Room",
+    room_type: "double-room",
     booked: false,
   },
   {
-    room_type: "Deluxe Room",
+    room_type: "deluxe-room",
     booked: false,
   },
   {
-    room_type: "Deluxe Room",
+    room_type: "deluxe-room",
     booked: false,
   },
   {
-    room_type: "Suite Room",
+    room_type: "suite-room",
     booked: false,
   },
 ];
