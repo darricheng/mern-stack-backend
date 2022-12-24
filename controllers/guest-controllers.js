@@ -26,6 +26,16 @@ const addGuest = async (req, res) => {
   }
 };
 
+// Add many guests
+const addManyGuests = async (req, res) => {
+  try {
+    const guests = await Guest.insertMany(req.body);
+    res.status(httpStatus.CREATED).json(guests);
+  } catch (error) {
+    res.status(httpStatus.INTERNAL_SERVER_ERROR).json(error);
+  }
+};
+
 // Delete a guest
 const deleteGuest = async (req, res) => {
   try {
@@ -52,6 +62,7 @@ const editGuest = async (req, res) => {
 module.exports = {
   getGuests,
   addGuest,
+  addManyGuests,
   deleteGuest,
   editGuest,
 };

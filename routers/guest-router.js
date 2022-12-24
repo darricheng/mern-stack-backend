@@ -6,6 +6,7 @@ const router = express.Router();
 const {
   getGuests,
   addGuest,
+  addManyGuests,
   deleteGuest,
   editGuest,
 } = require("../controllers/guest-controllers");
@@ -13,6 +14,7 @@ const {
 // Endpoints
 router.get("/", getGuests);
 router.post("/add", addGuest);
+router.post("/addMany", addManyGuests);
 router.delete("/:guestId", deleteGuest);
 router.put("/:guestId", editGuest);
 
