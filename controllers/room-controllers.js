@@ -2,8 +2,9 @@
     Controllers are responsible to handle Request and Response
 */
 
-const { Room } = require("../models");
+const { Room, User } = require("../models");
 const httpStatus = require("http-status");
+const mongoose = require("mongoose");
 
 // Controllers
 const findRooms = async (req, res) => {
@@ -18,14 +19,23 @@ const findRooms = async (req, res) => {
   }
 };
 const bookRoom = async (req, res) => {
+  console.log(req.body);
   try {
+    // Get the _id of the user that is booking the room based on the firebase_id
+    const user_id = await User.find({ firebase_id: req.body.booked_by }, "_id");
+
     // Extract the room type to a variable for easier handling
     let roomType = req.params.roomType;
 
     // Find the first document for the roomType that booked is false and update booked to true
     const result = await Room.findOneAndUpdate(
       { room_type: roomType, booked: false },
-      { booked: true }
+      {
+        ...req.body,
+        guests: req.body.guests.map((guest) => mongoose.Types.ObjectId(guest)),
+        booked_by: user_id[0]._id,
+        booked: true,
+      }
     ); // Returns null if no rooms are found
     console.log(result);
 
