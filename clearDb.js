@@ -3,7 +3,7 @@ const { Room, Guest, User } = require("./models");
 const clearAllData = async () => {
   await Room.deleteMany({});
   await Guest.deleteMany({});
-  await User.deleteMany({});
+  // await User.deleteMany({});
 };
 
 clearAllData();
